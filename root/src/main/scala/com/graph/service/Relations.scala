@@ -4,7 +4,7 @@ import com.graph.drivers.{GraphFactory, JanusGraphFactory}
 import com.graph.models.{Person, PersonWithRelation, Relation}
 import gremlin.scala._
 
-trait RelationService {
+trait Relations {
   this: GraphFactory =>
 
   def insert(relation: Relation): Relation = withTransaction { implicit graph =>
@@ -28,4 +28,4 @@ trait RelationService {
 }
 
 
-object RelationServiceImpl extends RelationService with JanusGraphFactory
+object RelationServiceImpl extends Relations with JanusGraphFactory

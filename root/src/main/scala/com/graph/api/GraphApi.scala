@@ -3,7 +3,7 @@ package com.graph.api
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
-import com.graph.drivers.JanusDB
+import com.graph.drivers.JanusConfig
 import com.graph.service.{RelationServiceImpl, SearchServiceImpl}
 
 
@@ -14,7 +14,7 @@ object GraphApi extends App with RelationsApi with SearchApi {
 
   implicit val executionContext = system.dispatcher
 
-  JanusDB.janusGraph.openManagement()
+  JanusConfig.janusGraph.openManagement()
 
   val relationService = RelationServiceImpl
   val searchService = SearchServiceImpl

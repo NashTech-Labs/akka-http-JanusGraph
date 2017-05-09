@@ -4,7 +4,7 @@ import com.graph.drivers.{GraphFactory, JanusGraphFactory}
 import com.graph.models.Person
 import gremlin.scala._
 
-trait SearchService {
+trait Search {
   this: GraphFactory =>
 
   def searchByName(name: String): List[Person] = withTransaction { implicit graph =>
@@ -28,4 +28,4 @@ trait SearchService {
 
 }
 
-object SearchServiceImpl extends SearchService with JanusGraphFactory
+object SearchServiceImpl extends Search with JanusGraphFactory

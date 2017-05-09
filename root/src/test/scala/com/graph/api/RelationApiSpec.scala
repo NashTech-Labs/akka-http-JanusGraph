@@ -2,9 +2,9 @@ package com.graph.api
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.testkit.{RouteTestTimeout, ScalatestRouteTest}
-import com.graph.json.JsonSupport
+import com.graph.serializer.JsonSupport
 import com.graph.models.{Person, PersonWithRelation, Relation}
-import com.graph.service.RelationService
+import com.graph.service.Relations
 import org.mockito.Mockito._
 import org.scalatest.mockito.MockitoSugar
 import org.scalatest.{Matchers, WordSpec}
@@ -15,7 +15,7 @@ class RelationApiSpec extends WordSpec with MockitoSugar with Matchers with Scal
 
   implicit val defaultTimeout = RouteTestTimeout(10.seconds)
 
-  val mockRelationService = mock[RelationService]
+  val mockRelationService = mock[Relations]
 
   object RelationApiTest extends RelationsApi {
     val relationService = mockRelationService

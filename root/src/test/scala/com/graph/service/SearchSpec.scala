@@ -5,13 +5,13 @@ import com.graph.models.Person
 import org.scalatest.{BeforeAndAfterAll, WordSpec}
 import gremlin.scala._
 
-class SearchServiceSpec extends WordSpec with BeforeAndAfterAll with JanusInMemoryGraphFactory {
+class SearchSpec extends WordSpec with BeforeAndAfterAll with JanusInMemoryGraphFactory {
 
   override def beforeAll = {
     JanusInMemoryDB.janusGraph.openManagement()
   }
 
-  object SearchServiceTest extends SearchService with JanusInMemoryGraphFactory
+  object SearchServiceTest extends Search with JanusInMemoryGraphFactory
 
   "SearchService" should {
     "search by name" in {

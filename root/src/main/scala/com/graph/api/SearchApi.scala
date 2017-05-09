@@ -1,15 +1,14 @@
 package com.graph.api
 
 import akka.http.scaladsl.server.{Directives, Route}
-import com.graph.json.JsonSupport
+import com.graph.serializer.JsonSupport
 import com.graph.models.Person
-import com.graph.service.SearchService
+import com.graph.service.Search
 
 
 trait SearchApi extends Directives with JsonSupport {
 
-
-  val searchService: SearchService
+  val searchService: Search
 
   def searchRoutes: Route = searchByName ~ searchByPersonType ~ searchByPersonAndRelation
 

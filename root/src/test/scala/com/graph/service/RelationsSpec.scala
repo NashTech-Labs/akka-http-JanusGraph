@@ -5,14 +5,14 @@ import com.graph.models.{Person, Relation}
 import org.scalatest.{BeforeAndAfterAll, WordSpec}
 
 
-class RelationServiceSpec extends WordSpec with BeforeAndAfterAll with JanusInMemoryGraphFactory {
+class RelationsSpec extends WordSpec with BeforeAndAfterAll with JanusInMemoryGraphFactory {
 
   override def beforeAll = {
     JanusInMemoryDB.janusGraph.openManagement()
   }
 
 
-  object RelationServiceTest extends RelationService with JanusInMemoryGraphFactory
+  object RelationServiceTest extends Relations with JanusInMemoryGraphFactory
 
   "RelationService" should {
     "insert a relation between two person" in {

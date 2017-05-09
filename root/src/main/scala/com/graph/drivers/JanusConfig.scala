@@ -4,7 +4,7 @@ import org.apache.commons.configuration.BaseConfiguration
 import org.janusgraph.core.JanusGraphFactory
 
 
-object JanusDB {
+object JanusConfig {
 
   private val conf = new BaseConfiguration
 
@@ -17,7 +17,7 @@ object JanusDB {
 }
 
 trait JanusGraphFactory extends GraphFactory {
-  lazy val janusGraph = JanusDB.janusGraph
+  lazy val janusGraph = JanusConfig.janusGraph
 }
 
 trait JanusInMemoryGraphFactory extends GraphFactory {

@@ -2,9 +2,9 @@ package com.graph.api
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.testkit.{RouteTestTimeout, ScalatestRouteTest}
-import com.graph.json.JsonSupport
+import com.graph.serializer.JsonSupport
 import com.graph.models.Person
-import com.graph.service.SearchService
+import com.graph.service.Search
 import org.mockito.Mockito.when
 import org.scalatest.mockito.MockitoSugar
 import org.scalatest.{Matchers, WordSpec}
@@ -15,7 +15,7 @@ class SearchApiSpec extends WordSpec with MockitoSugar with Matchers with Scalat
 
   implicit val defaultTimeout = RouteTestTimeout(10.seconds)
 
-  val mockSearchService = mock[SearchService]
+  val mockSearchService = mock[Search]
   val routes = SearchApiTest.searchRoutes
 
   object SearchApiTest extends SearchApi {

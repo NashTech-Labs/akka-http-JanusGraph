@@ -1,16 +1,15 @@
 package com.graph.api
 
 import akka.http.scaladsl.server.{Directives, Route}
-import com.graph.json.JsonSupport
+import com.graph.serializer.JsonSupport
 import com.graph.models.{PersonWithRelation, Relation}
-import com.graph.service.RelationService
+import com.graph.service.Relations
 
 import akka.http.scaladsl.model.StatusCodes.Created
 
 trait RelationsApi extends Directives with JsonSupport {
 
-  val relationService: RelationService
-
+  val relationService: Relations
 
   def relationRoutes = insert ~ insertById
 

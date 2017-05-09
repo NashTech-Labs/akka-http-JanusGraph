@@ -1,4 +1,4 @@
-package com.graph.json
+package com.graph.serializer
 
 import org.json4s.JValue
 import org.json4s.native.JsonMethods.parse
